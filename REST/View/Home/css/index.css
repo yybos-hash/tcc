@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+p, a {
+    font-size: 14pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    color: white;
+}
+h1 {
+    font-size: 21pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+#main-div {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+    height: fit-content;
+
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#background-image {
+    position: fixed;
+
+    top: -2svh;
+    left: -2vw;
+
+    width: 105vw;
+    height: 105svh;
+
+    filter: blur(6px);
+    z-index: -1;
+
+    object-fit: cover;
+}
+
+#main-nav {
+    position: relative;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 6rem;
+
+    background-color: rgba(0, 0, 0, 0.6);
+}
+#nav-holder {
+    display: flex;
+
+    flex-direction: row;
+
+    gap: 3rem;
+}
+.nav-obj {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.5rem;
+
+    height: 2rem;
+}
+.nav-obj > img {
+    height: 100%;
+}
+
+#main-body-1 {
+    width: 100vw;
+    height: 100svh;
+
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#main-body-1-info {
+    position: absolute;
+    display: flex;
+
+    flex-direction: column;
+
+    top: 30svh;
+    left: 5vw;
+
+    padding: 2rem;
+
+    box-sizing: border-box;
+
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#main-body-2 {
+    padding: 3rem;
+    box-sizing: border-box;
+
+    width: 100vw;
+    height: fit-content;
+
+    background-color: rgb(10, 10, 10);
+}
+
+.question-answer {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    max-width: 50vw;
+    border-radius: 1rem;
+    background-color: rgb(25, 25, 25);
+}
+.question-answer > :first-child {
+    font-size: 16pt !important;
+    font-weight: 600;
+
+    margin-bottom: 0.5rem;
+}
+.question-answer > :last-child {
+    font-size: 13pt !important;
+}
+
+@media screen and (max-width: 1200px) {
+    #main-body-1-info {
+        position: relative;
+
+        width: 90%;
+    }
+
+    .question-answer {
+        max-width: 90vw;
+    }
+}

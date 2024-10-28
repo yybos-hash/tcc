@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="View/favicon.png">
+
+        <link rel="stylesheet" href="View/Users/css/index.css">
+        <link rel="stylesheet" href="View/Users/css/selectables.css">
+
+        <script src="View/libs/anime.min.js"></script>
+
+        <title>Usuários</title>
+    </head>
+    <body>
+        <div id="profile-overview">
+            <div id="profile-div">
+                <img id="profile-pfp" class="owner-pfp" alt="">
+            </div>
+        </div>
+
+        <div id="main-container">
+            <div id="selectables-div" class="selectables-close">
+                <div id="selectables">
+                    <img class="profile-image owner-pfp" style="border-radius: 50%;" src="" alt="profile">
+                    <img id="chat-selectable" src="View/selectables/chat-icon.png" alt="">
+                    <img id="friends-selectable" src="View/selectables/friends-icon.png" alt="">
+                    <img id="home-selectable" src="View/selectables/home-icon.png" alt="">
+                    <img id="login-selectable" src="View/selectables/login-icon.png" alt="">
+                    <img id="selectables-icon" src="View/selectables/selectables-icon.png">
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; width: 100%; align-items: center;">
+                <div id="search-div">
+                    <div id="search-input">
+                        <img src="View/Users/images/search-icon.png" alt="search-icon">
+                        <input id="input" type="text" placeholder="Nome do Amiguinho" spellcheck="false">
+                    </div>
+                </div>
+    
+                <div id="results-div">
+                </div>
+            </div>
+        </div>
+
+        <script src="View/Users/js/elements.js"></script>
+        <script src="View/Users/js/index.js"></script>
+        <script src="View/Users/js/functions.js"></script>
+        <script>
+            // when the page is done loading
+            document.addEventListener("DOMContentLoaded", () => {
+                getOwner();
+            });
+        </script>
+    </body>
+</html>

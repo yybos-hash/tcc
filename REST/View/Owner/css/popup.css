@@ -1,0 +1,40 @@
+div#popup-div {
+    position: absolute;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100svh;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 3;
+}
+div#popup-message-div {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: fit-content;
+    min-width: 20rem;
+    height: 35svh;
+
+    border-radius: 0.15rem;
+
+    padding-block: 4rem;
+    padding-inline: 3rem;
+    box-sizing: border-box;
+
+    background-color: rgba(12, 12, 12, 1);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(35, 35, 35);
+}
+h1#popup-message {
+    color: white;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

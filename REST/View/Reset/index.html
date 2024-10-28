@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="View/Reset/css/index.css">
+
+        <title>Reset de Senha</title>
+    </head>
+    <body>
+        <div id="main">
+            <div id="reset-container">
+                <h1 style="position: absolute; top: 1.5rem;">Reset de Senha</h1>
+
+                <input type="text" name="pass-input" id="password" placeholder="Nova Senha">
+                <input type="text" name="confirm-pass-input" id="confirm-password" placeholder="Confirmar Senha">
+            
+                <button>Enviar</button>
+            </div>
+        </div>
+
+        <script>
+            // get the user through url
+            const urlObj = new URL(window.location.href);
+            const urlParams = new URLSearchParams(urlObj.search);
+        </script>
+    </body>
+</html>

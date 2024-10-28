@@ -1,0 +1,96 @@
+#friends-div-title {
+    position: absolute;
+
+    top: 1rem;
+    left: 4rem;
+
+    color: black;
+    background-color: white;
+
+    padding: 0.25rem;
+
+    font-size: 18pt;
+}
+
+#friends-holder {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+
+    padding-block: 6rem;
+    padding-inline: 4rem;
+
+    box-sizing: border-box;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.friend {
+    width: 50%;
+    display: flex;
+
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 1rem;
+}
+.friend-pfp {
+    width: 3rem;
+    height: 3rem;
+
+    border-radius: 50%;
+    overflow: hidden;
+}
+.friend-pfp img {
+    width: 100%;
+    height: 100%;
+}
+.friend-info {
+    display: flex; 
+    
+    flex: 1;
+
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between;
+
+    width: 100%;
+    height: auto;
+}
+.friend-name {
+    font-size: 15pt !important;
+}
+
+#add-friend-holder {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: fit-content;
+}
+#add-friend-button {
+    cursor: pointer;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    aspect-ratio: 1/1;
+}
+
+@media (max-width: 640px) {
+    #friends-holder {
+        width: 100%;
+
+        padding-inline: 1rem;
+    }
+
+    .friend {
+        width: 100%;
+    }
+}

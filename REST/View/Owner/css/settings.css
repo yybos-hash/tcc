@@ -1,0 +1,19 @@
+div#settings-div {
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+}
+
+button#delete-account-button {
+    position: absolute;
+
+    bottom: 6rem;
+
+    border-color: red;
+    color: red;
+}
+button#delete-account-button:hover {
+    background-color: red;
+    color: black;
+}

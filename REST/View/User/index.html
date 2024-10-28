@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="View/favicon.png">
+        
+        <link rel="stylesheet" href="View/User/css/index.css">
+        
+        <title>Perfil</title>
+    
+        <style>
+            .flex {
+                display: flex;
+            }
+            .vertical {
+                flex-direction: column;
+            }
+            .horizontal {
+                flex-direction: row;
+            }
+
+            .text-style-1 {
+                text-align: start;
+                color: white;
+
+                font-size: 13pt;
+                font-weight: 500;    
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .text-style-2 {
+                text-align: start;
+                color: gray;
+
+                font-size: 11pt;
+                font-weight: 500;    
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .text-style-3 {
+                text-align: start;
+                color: rgba(240, 240, 240, 1);
+
+                font-size: 11pt;
+                font-weight: 500;    
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main-div">
+            <div style="position: relative;">
+                <img id="user-profile-background" src="" alt="">
+                <p id="user-profile-join" class="text-style-3"></p>
+            </div>
+            <div id="user-profile-holder">
+                <div>
+                    <div class="user-profile-picture-holder" style="position: absolute; top: -4rem;">
+                        <img class="user-profile-picture" src="" alt="">
+                    </div>
+
+                    <button id="edit-profile-button" style="display: none; position: absolute; right: 2rem; top: 1rem;">Editar Perfil</button>
+                </div>
+                <div>
+                    <p id="user-profile-name" class="text-style-1" style="font-size: 22pt;"></p>
+                    <div class="flex horizontal" style="gap: 0.25rem;">
+                        <p id="user-profile-class" class="text-style-2"></p>
+                        <p id="user-profile-course" class="text-style-2"></p>
+                    </div>
+
+                    <div id="holder-info">
+                        <p id="user-profile-desc" class="text-style-2"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="View/User/js/elements.js"></script>
+        <script src="View/User/js/functions.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", async () => {
+                // get the user through url
+                const urlObj = new URL(window.location.href);
+                const urlParams = new URLSearchParams(urlObj.search);
+                let userHash = urlParams.get("u");
+                
+                let owner = await getUser(null);
+                let user = await getUser(userHash);
+                for (let i = 0; i < userPfps.length; i++) {
+                    userPfps[i].src = "data:image/jpeg;base64," + user.pfp;
+                }
+
+                if (user.user_hashed == owner.user_hashed) {
+                    editProfileButton.style.display = "block";
+                }
+
+                username.innerText = user.user_name;
+                userClass.innerText = user.user_class;
+                userCourse.innerText = user.user_course;
+                userDesc.innerText = user.user_description;
+
+                userBackground.src = "data:image/jpeg;base64," + user.background;
+
+                let date = user.user_join.split(" ")[0].replaceAll("-", "/");
+                let time = user.user_join.split(" ")[1];
+                userJoin.innerHTML = "Se registrou no dia <span class='text-style-2'>" + date + "</span> as <span class='text-style-2'>" + time + "</span>";
+
+                document.title = user.user_name;
+            });
+        </script>
+    </body>
+</html>

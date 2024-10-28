@@ -1,0 +1,147 @@
+.class, .course {
+    color: grey !important;
+    font-size: 10pt !important;
+}
+
+#foreground {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100svh;
+
+    z-index: 300;
+
+    background-color: rgba(0, 0, 0);
+}
+div#foreground-icon-div {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+div#foreground-icon-div img {
+    width: 100%;
+    height: 100%;
+
+    aspect-ratio: 1/1;
+}
+
+#menu-button {
+    display: none;
+    position: absolute;
+
+    top: 1.5rem;
+
+    width: 32px;
+    height: 32px;
+
+    transition: transform 0.5s ease-out;
+}
+
+#bitch {
+    display: flex;
+    position: absolute;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding-block: 5rem;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background-color: rgba(20, 20, 20, 1);
+    box-sizing: border-box;
+}
+#bitch-title {
+    background-color: white;
+    color: black;
+
+    padding: 0.5rem;
+    margin-bottom: 5rem;
+
+    width: fit-content;
+
+    box-sizing: border-box;
+}
+
+.bitch-credit {
+    display: flex;
+ 
+    flex-direction: row;
+ 
+    justify-content: flex-start;
+    align-items: center;
+    
+    width: 40rem;
+    height: 7rem;
+}
+
+.bitch-credit-info {
+    display: flex; 
+
+    flex-direction: column; 
+    justify-content: start;
+
+    gap: 1rem; 
+}
+
+.bitch-credit-name {
+    font-size: 15pt !important;
+}
+.bitch-credit-class {
+    font-size: 12pt !important; 
+    color: grey !important;
+}
+.bitch-credit-role {
+    font-size: 12pt !important; 
+    margin-top: 0.75rem !important;
+}
+
+@media (max-width: 640px) {
+    #menu-button {
+        display: block;
+    }
+
+    #foreground-overview {
+        width: 80%;
+        height: 50%;
+    }
+
+    .bitch-credit {
+        width: 90%;
+    }
+
+    .bitch-credit-info {
+        gap: 3rem;  
+        align-items: center;
+    }
+
+    .bitch-credit-name {
+        font-size: 12pt !important;
+    }
+    .bitch-credit-class {
+        font-size: 10pt !important; 
+        color: grey !important;
+    }
+    .bitch-credit-role {
+        font-size: 11pt !important; 
+        margin-top: 0.75rem !important;
+    }
+}

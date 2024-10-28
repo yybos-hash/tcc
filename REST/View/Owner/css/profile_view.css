@@ -1,0 +1,158 @@
+div#profile-view-div {
+    display: flex;
+
+    flex-direction: column;
+ 
+    width: 100%;
+    height: fit-content;
+
+    background-color: black;
+}
+
+img#profile-view-user-profile-background {
+    width: 100%;
+    height: 13svw;
+
+    aspect-ratio: 1/1;
+
+    object-fit: cover;
+    object-position: center;
+}
+p#profile-view-user-profile-join {
+    display: none;
+    position: absolute;
+}
+div#profile-view-user-profile-holder {
+    display: flex;
+
+    flex-direction: column;
+
+    position: relative;
+    background-color: black;
+
+    flex: 1;
+
+    box-sizing: border-box;
+}
+div#profile-view-user-profile-holder > div {
+    padding-inline: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+}
+div#profile-view-user-profile-holder > :first-child {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: flex-start;
+
+    width: 100%; 
+    height: 5rem;
+}
+div#profile-view-user-profile-holder > :last-child {
+    display: flex;
+
+    flex-direction: column;
+    
+    flex: 1;
+
+    width: 100%;
+}
+
+div#profile-view-user-profile-picture-holder {
+    position: absolute; 
+    top: -3rem;
+   
+    width: 6rem;
+    height: 6rem;
+
+    border-radius: 50%;
+    border-width: 0.35rem;
+    border-style: solid;
+    border-color: black;
+
+    overflow: hidden;
+}
+img#profile-view-user-profile-picture {
+    width: 100%;
+    height: 100%;
+
+    aspect-ratio: 1/1;
+}
+
+div#profile-view-holder-info {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 100%;
+    min-height: 20rem;
+
+    padding: 1rem;
+    margin-top: 1.5rem;
+
+    box-sizing: border-box;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.125);
+    border-radius: 0.4rem;
+
+    background-color: rgba(255, 255, 255, 0.1);
+}
+div#background-input-div {
+    position: absolute; 
+    right: 1rem; 
+    bottom: 1rem; 
+    
+    width: 3rem; 
+    height: 3rem; 
+    
+    border-radius: 50%; 
+    
+    overflow: hidden; 
+    background-color: black; 
+    
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+div#profile-view-edit-form {
+    margin-top: 2rem !important; 
+    padding-inline: 0rem;
+
+    border-bottom-width: 0;
+}
+p#profile-view-user-profile-class {
+    font-size: 11pt;
+    color: grey;
+}
+p#profile-view-user-profile-course {
+    font-size: 11pt;
+    color: grey;
+}
+
+p#profile-view-user-profile-desc {
+    font-size: 11pt;
+}
+
+@media screen and (max-width: 640px) {    
+    div#profile-view-div > :first-child {
+        width: 100%;
+        height: 10rem;
+    }
+
+    img#profile-view-user-profile-background {
+        height: 100%;
+    }
+
+    div#profile-view-holder-info {
+        width: 100%;
+    }
+
+    div#profile-view-user-profile-picture-holder {
+        left: 1rem;
+    }
+}

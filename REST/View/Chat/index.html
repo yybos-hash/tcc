@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/x-icon" href="View/favicon.png">
+
+        <link rel="stylesheet" href="View/Chat/css/chats.css">
+        <link rel="stylesheet" href="View/Chat/css/conversation.css">
+        <link rel="stylesheet" href="View/Chat/css/selectables.css">
+        <link rel="stylesheet" href="View/Chat/css/other.css">
+
+        <title>Chat</title>
+
+        <!-- A N I M A T I O N S -->
+        <script src="View/libs/anime.min.js"></script>
+        
+        <style>
+            /* Only the basics. Didn't think it would need a separate file */
+            html, body {
+                height: 100svh;
+            }
+
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            #main-container {
+                position: relative;
+                display: flex;
+
+                flex-direction: row;
+
+                width: 100vw;
+                height: 100svh;
+            }
+
+            .title-style-1 {
+                text-align: start;
+                color: white;
+
+                font-size: 16pt;
+                font-weight: 600;    
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+                letter-spacing: 0.05rem;
+            }
+            .text-style-1 {
+                text-align: start;
+                color: white;
+
+                font-size: 13pt;
+                font-weight: 500;    
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+
+            .pointer {
+                cursor: pointer;
+            }
+
+            @media (max-width: 640px) {
+                .title-style-1 {
+                    font-size: 13pt;
+                }
+                .text-style-1 {
+                    font-size: 11pt;
+                }
+            }
+        </style>
+
+        <!-- Note: the owner-pfp css class does not exist, it's sole purpose is to identify the user's profile picture -->
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="chats-container">
+                <div id="profile-overview">
+                    <div class="profile-holder pointer">
+                        <span class="profile-holder-span">
+                            <img class="profile-image owner-pfp" id="overview-profile-holder-image" src="" alt="profile">
+                        </span>
+                    </div>
+
+                    <div class="flex vertical">
+                        <p id="profile-overview-name" class="text-style-1"></p>
+                        <p id="profile-overview-desc" class="text-style-1 class"></p>
+                    </div>
+                </div>
+
+                <div id="chats-overview">
+
+                </div>
+
+                <div id="selectables-div" class="selectables-close">
+                    <div id="selectables">
+                        <img class="profile-image owner-pfp" style="border-radius: 50%;" src="" alt="profile">
+                        <img id="chat-selectable" src="View/selectables/chat-icon.png" alt="">
+                        <img id="friends-selectable" src="View/selectables/friends-icon.png" alt="">
+                        <img id="home-selectable" src="View/selectables/home-icon.png" alt="">
+                        <img id="login-selectable" src="View/selectables/login-icon.png" alt="">
+                        <img id="selectables-icon" src="View/selectables/selectables-icon.png">
+                    </div>
+                </div>
+            </div>
+
+            <div id="conversation-container">
+                <div id="mf-profile-holder"> <!-- This div will hold the profile of the other person that stays on the top, kinda like whatsapp -->
+                    <div class="profile-holder"> <!-- Oh yeah, this div is just the profile image, basically. I'm using it everywhere -->
+                        <span class="profile-holder-span">
+                            <img id="mf-profile-holder-image" class="profile-image" src="" alt="profile">
+                        </span>
+                        <div id="mf-profile-status" class="profile-holder-online"></div>
+                    </div>
+
+                    <div id="mf-profile-info"> <!-- Name and other things -->
+                        <div>
+                            <p id="mf-profile-info-username" class="title-style-1"></p>
+                            <p id="mf-profile-info-desc" class="title-style-1 class"></p>
+                        </div>
+                        
+                        <div>
+                            <p id="mf-profile-info-class" class="text-style-1 class"></p>
+                            <p id="mf-profile-info-course" class="text-style-1 course"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mf-conversation-holder">
+                    
+                </div>
+
+                <div id="mf-io-holder">
+                    <div id="mf-io-div"> <!-- Name confusion. Idk what to call this div -->
+                        <input id="mf-io-input" type="text" spellcheck="false">
+                        
+                        <!-- Yes, this is the button (cry about it) -->
+                        <div id="mf-io-send">
+                            <img src="View/Chat/images/send-icon.png" alt="send"> <!-- Consider finding a good icon, this is all I could find -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bitch">
+                    <h1 id="bitch-title" class="title-style-1" style="font-size: 20pt">Créditos</h1>
+
+                    <div class="bitch-credit-info">
+                        <div class="bitch-credit">
+                            <div class="profile-holder">
+                                <span class="profile-holder-span" style="height: 100%;">
+                                    <img loading="lazy" class="profile-image" src="View/Chat/images/eita-preula.webp" alt="pfp">
+                                </span>
+                            </div>
+                            
+                            <div style="display: flex; flex-direction: column; justify-content: center; margin-left: 1rem;">
+                                <p class="text-style-1 bitch-credit-name">Muriel S. de Souza (Sim, sou eu na foto)</p>
+                                <p class="text-style-1 bitch-credit-class">304 Internet</p>
+                                <p class="text-style-1 bitch-credit-role">Banco de Dados, Back-End, Front-End, Encriptação, Websocket</p>
+                            </div>
+                        </div>
+
+                        <div class="bitch-credit">
+                            <div class="profile-holder">
+                                <span class="profile-holder-span" style="height: 100%;">
+                                    <img loading="lazy" class="profile-image" src="View/Chat/images/negocio-estranho.jpg" alt="pfp">
+                                </span>
+                            </div>
+                            
+                            <div style="display: flex; flex-direction: column; justify-content: center; margin-left: 1rem;">
+                                <p class="text-style-1 bitch-credit-name">Alexandre Thomas Filho</p>
+                                <p class="text-style-1 bitch-credit-class">304 Internet</p>
+                                <p class="text-style-1 bitch-credit-role">Portabilidade do Style Sheet Para Dispositivos Móveis</p>
+                            </div>
+                        </div>
+
+                        <div class="bitch-credit">
+                            <div class="profile-holder">
+                                <span class="profile-holder-span" style="height: 100%;">
+                                    <img loading="lazy" class="profile-image" src="View/Chat/images/kaua-feio.jpeg" alt="pfp">
+                                </span>
+                            </div>
+                            
+                            <div style="display: flex; flex-direction: column; justify-content: center; margin-left: 1rem;">
+                                <p class="text-style-1 bitch-credit-name">Kauã Tomé Ricardo</p>
+                                <p class="text-style-1 bitch-credit-class">304 Internet</p>
+                                <p class="text-style-1 bitch-credit-role">Apoio Moral, Construção e Formatação do Documento Formal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="foreground">
+            <div id="foreground-icon-div">
+                <img src="View/selectables/chat-icon.png">
+            </div>
+            <p class="text-style-1" id="foreground-loading-text"></p>
+        </div>
+
+        <img style="left: 87.5%" id="menu-button" src="View/Chat/images/menu-icon.png">
+
+        <script src="View/Chat/js/others.js"></script>
+        <script src="View/Chat/js/functions.js"></script>
+        <script src="View/Chat/js/encryption.js"></script>
+        <script src="View/Chat/js/elements.js"></script>
+        <script src="View/Chat/js/websocket.js"></script>
+        <script src="View/Chat/js/animations.js"></script>
+
+        <script>
+            // when the page is done loading
+            document.addEventListener("DOMContentLoaded", async () => {
+                isMobileViewport = (window.innerWidth <= 640);
+
+                // user
+                foregroundLoadingText.innerText = "Carregando suas informações...";
+                owner = await getUser(null); // null means we want our user
+
+                usersPicture[owner.user_hashed] = owner.pfp;
+                updateProfilePicture();
+
+                let name = owner.user_name.substr(0, 13);
+                let desc = owner.user_description.substr(0, 15);
+                overviewProfileName.innerText = owner.user_name.length < 13 ? name : name + "...";
+                overviewProfileDesc.innerText = owner.user_description.length < 15 ? desc : desc + "...";
+            
+                // jwt (no shit, sherlock holmes)
+                jwt = await getToken();
+
+                // chats
+                foregroundLoadingText.innerText = "Espiando suas conversas...";
+                const c = await getChats(); // variable name was causing conflict with the chat json var
+                for (let i = 0; i < c.length; i++) {
+                    const currentChat = c[i];
+                    
+                    chats[currentChat.conversation_hashed] = {};
+                    chats[currentChat.conversation_hashed]["messages"] = await getMessages(currentChat.conversation_hashed);
+                    chats[currentChat.conversation_hashed]["user"] = {
+                        "user_name": currentChat.user_name,
+                        "user_hashed": currentChat.user_hashed,
+                        "user_class": currentChat.user_class,
+                        "user_course": currentChat.user_course,
+                        "user_status": false
+                    };
+                    addChat(currentChat); // will add the chat to the html
+                }
+
+                // websocket
+                if (!window.crypto || !window.crypto.subtle) {
+                    alert("Esse navegador não suporta a API crypto.\nMensagens não poderão ser enviadas sem a API crypto.");
+                    
+                    // stop loading
+                    anime({
+                        targets: foreground,
+                        delay: 1250,
+                        opacity: [1, 0],
+                        duration: 800,
+                        easing: "easeInOutQuad",
+                        complete: function () {
+                            foreground.style.display = "none";
+                            anime.remove("#foreground-icon-div");
+                        }
+                    });
+                }
+                else {
+                    foregroundLoadingText.innerText = "Se conectando ao Websocket...";
+                    beginWebsocket();
+                }
+
+                // viewport check
+                document.addEventListener("resize", () => {
+                    isMobileViewport = (window.innerWidth <= 640);
+                });
+
+                document.addEventListener("dataLoaded", () => {
+                    foregroundLoadingText.innerText = "Ta carregado chefe 👍";
+                    
+                    // stop loading
+                    anime({
+                        targets: foreground,
+                        delay: 1250,
+                        opacity: [1, 0],
+                        duration: 800,
+                        easing: "easeInOutQuad",
+                        complete: function () {
+                            foreground.style.display = "none";
+                            anime.remove("#foreground-icon-div");
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

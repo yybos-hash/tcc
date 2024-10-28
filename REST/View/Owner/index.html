@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/x-icon" href="View/favicon.png">
+
+        <link rel="stylesheet" href="View/Owner/css/index.css">
+        <link rel="stylesheet" href="View/Owner/css/edit.css">
+        <link rel="stylesheet" href="View/Owner/css/profile_view.css">
+        <link rel="stylesheet" href="View/Owner/css/friends.css">
+        <link rel="stylesheet" href="View/Owner/css/settings.css">
+        <link rel="stylesheet" href="View/Owner/css/selectables.css">
+        <link rel="stylesheet" href="View/Owner/css/popup.css">
+
+        <script src="View/libs/anime.min.js"></script>
+
+        <title>Perfil</title>
+    </head>
+    <body>
+        <input type="file" id="pfp-input" style="display: none;" accept="image/*">
+
+        <div id="main-div">
+            <div id="popup-div" style="display: none;">
+                <div id="popup-message-div">
+                    <h1 id="popup-message"></h1>
+
+                    <div id="popup-buttons-div" style="display: flex; flex-direction: row; gap: 0.5rem; width: 100%; justify-content: center;">
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="options-div">
+                <div id="profile-overview" style="position: absolute;">
+                    <div style="position: relative;">
+                        <img class="owner-pfp" id="dash-pfp" loading="lazy" alt="pfp">
+                    </div>
+
+                    <p class="owner-name"></p>
+                </div>
+
+                <div id="profile-button" class="option-div" style="margin-top: 6.5rem">
+                    <img loading="lazy" src="View/Owner/images/edit-icon.png" alt="some">
+                    <p>Editar Informações</p>
+                </div>
+
+                <div id="settings-button" class="option-div">
+                    <img loading="lazy" src="View/Owner/images/settings-icon.png" alt="some">
+                    <p>Configurações</p>
+                </div>
+
+                <div id="friends-button" class="option-div">
+                    <img loading="lazy" src="View/selectables/friends-icon.png" alt="some">
+                    <p>Amigos</p>
+                </div>
+
+                <div id="logout-button" class="option-div" style="position: absolute; bottom: 0; flex-direction: row;">
+                    <img loading="lazy" src="View/Owner/images/exit-icon.png" alt="some">
+                    <p>Sair</p>
+                </div>
+            </div>
+
+            <div id="user-div">
+                <div id="notifications-div">
+                    <img id="notifications-icon" src="View/Owner/images/notification-icon.png">
+                    <div id="notifications-dot" style="display: none;"></div>
+                </div>
+
+                <div id="notification-window" style="display: none; opacity: 0;">
+                    <p>Notificações</p>
+                    <img id="notification-window-close" src="View/Owner/images/close-icon.png"/>
+                    <div id="notification-window-content">
+
+                    </div>
+                </div>
+
+                <div id="edit-div" style="display: none;">
+                    <h2 id="edit-div-title">Editar Perfil</h2>
+
+                    <div class="edit-form" style="margin-top: 8rem;">
+                        <div>
+                            <label for="name-input" style="margin-bottom: 0.25rem;">Nome</label>
+                            <input type="text" name="name-input" id="name-input">
+                        </div>
+
+                        <div>
+                            <label for="email-input" style="margin-bottom: 0.25rem;">Email</label>
+                            <input type="email" name="email-input" id="email-input">
+                        </div>
+                    </div>
+
+                    <!--
+                    <div class="edit-form">
+                        <div>
+                            <label for="class-input" style="margin-bottom: 0.25rem;">Turma</label>
+                            <input type="number" name="class-input" id="class-input">
+                        </div>
+
+                        <div>
+                            <label for="course-input" style="margin-bottom: 0.25rem;">Curso</label>
+                            <select id="course-input" name="course-input" style="width: 10rem;">
+                                <option value="int">Internet</option>
+                                <option value="vend">Vendas</option>
+                                <option value="mec">Mecânica</option>
+                            </select>                              
+                        </div>
+                    </div>
+                    -->
+
+                    <div class="edit-form">
+                        <div>
+                            <label for="description-input" style="margin-bottom: 0.25rem;">Descrição</label>
+                            <textarea name="description-input" id="description-input" cols="20" rows="2" maxlength="255"></textarea>    
+                        </div>
+                    </div>
+
+                    <div class="edit-form">
+                        <button id="save-button">Salvar</button>
+                    </div>
+
+                    <div class="edit-form" id="profile-view-edit-form">
+                        <div id="profile-view-div">
+                            <div style="position: relative;">
+                                <img id="profile-view-user-profile-background" class="owner-background" src="" alt="">
+                                
+                                <div id="background-input-div" class="pointer">
+                                    <img style="width: 60%; height: 60%;" src="View/Owner/images/edit-icon.png" alt="">
+                                    <input type="file" id="background-input" style="display: none;" accept="image/*">
+                                </div>
+                                
+                                <p id="profile-view-user-profile-join" class="text-style-3 owner-join"></p>
+                            </div>
+
+                            <div id="profile-view-user-profile-holder">
+                                <div>
+                                    <div id="profile-view-user-profile-picture-holder">
+                                        <img id="profile-view-user-profile-picture" class="owner-pfp pointer" src="" alt="">
+                                    </div>
+                                </div>
+                                <div>
+                                    <p id="profile-view-user-profile-name" class="text-style-1 owner-name" style="font-size: 22pt;"></p>
+                                    <div class="flex horizontal" style="gap: 0.25rem;">
+                                        <p id="profile-view-user-profile-class" class="text-style-1 owner-class"></p>
+                                        <p id="profile-view-user-profile-course" class="text-style-1 owner-course"></p>
+                                    </div>
+                
+                                    <div id="profile-view-holder-info">
+                                        <p id="profile-view-user-profile-desc" class="text-style-2 owner-desc"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="friends-div" style="position: relative;">
+                    <h2 id="friends-div-title">Coleguinhas</h2>
+                    <div id="friends-holder">
+                    </div>
+                    <div id="add-friend-holder">
+                        <img id="add-friend-button" src="View/Owner/images/add-friend.png" alt="">
+                    </div>
+                </div>
+
+                <div id="settings-div" style="display: none;">
+                    <button id="delete-account-button">Deletar Conta</button>
+                </div>
+            </div>
+
+            <div id="selectables-div" class="selectables-close">
+                <div id="selectables">
+                    <img id="chat-selectable" src="View/selectables/chat-icon.png" alt="">
+                    <img id="friends-selectable" src="View/selectables/friends-icon.png" alt="">
+                    <img id="home-selectable" src="View/selectables/home-icon.png" alt="">
+                    <img id="login-selectable" src="View/selectables/login-icon.png" alt="">
+                    <img id="selectables-icon" src="View/selectables/selectables-icon.png">
+                </div>
+            </div>
+        </div>
+
+        <script src="View/Owner/js/index.js"></script>
+        <script src="View/Owner/js/elements.js"></script>
+        <script src="View/Owner/js/functions.js"></script>
+        <script>
+            // when the page is done loading
+            document.addEventListener("DOMContentLoaded", () => {
+                getUser(null);
+                getPendingFriends();
+                getFriends();
+
+                openPage(friendsButton);
+            });
+        </script>
+    </body>
+</html>

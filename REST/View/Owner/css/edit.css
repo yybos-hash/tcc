@@ -1,0 +1,83 @@
+.checkbox {
+    width: 1.3rem;
+    height: 1.3rem;
+
+    background-color: white;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+}
+
+div#edit-div {
+    width: 100%;
+    height: 100%;
+
+    max-width: 100vw;
+    max-height: 100vh;
+
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    overflow: auto;
+}
+div#edit-div::-webkit-scrollbar {
+    display: none;
+}
+
+#edit-div-title {
+    position: absolute;
+    top: 1rem;
+    left: 4rem;
+
+    background-color: white;
+    color: black;
+
+    padding: 0.25rem;
+
+    font-size: 18pt;
+}
+
+.edit-form {
+    display: flex;
+
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 50%;
+
+    margin-top: 4rem;
+
+    padding-block: 1.5rem;
+    padding-inline: 1.5rem;
+
+    border-bottom-style: solid;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+    border-bottom-width: 1px;
+
+    box-sizing: border-box;
+}
+.edit-form > div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+@media (max-width: 640px) {
+    .edit-form {
+        width: 100%;
+
+        gap: 3rem;
+        flex-direction: column;
+
+    }
+
+    div#edit-div {
+        align-items: start;
+    }
+}

@@ -1,0 +1,149 @@
+#chats-container {
+    display: flex;
+
+    min-width: 290px;
+
+    width: 20%;
+    height: 100svh;
+
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    align-items: center;
+
+    border-right-style: solid;
+    border-right-color: rgba(255, 255, 255, 0.25);
+    border-right-width: 1px;
+
+    background-color: black;
+
+    box-sizing: border-box;
+}
+
+/* Holds all the elements from the profile image */
+#profile-overview {
+    position: relative;
+    display: flex;
+
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 95%;
+    height: 5rem;
+
+    border-bottom-color: rgba(255, 255, 255, 0.25);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+
+    background-color: black;
+
+    box-sizing: border-box;
+}
+#profile-overview-name {
+    font-size: 15pt !important;
+}
+.profile-holder {
+    position: relative;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    aspect-ratio: 1/1;
+    height: 70%;
+
+    border-radius: 50%;
+
+    margin: 0.5rem;
+
+    background-color: transparent;
+
+    box-sizing: border-box;
+}
+.profile-holder-span {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: auto;
+    height: 90%;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+}
+.profile-image {
+    height: 100%;
+    width: auto;
+
+    cursor: pointer;
+
+    aspect-ratio: 1/1;
+}
+.profile-holder-online {
+    position: absolute;
+
+    bottom: 0;
+    right: 0;
+
+    width: 0.75rem;
+    height: 0.75rem;
+
+    border-width: 4px;
+    border-color: black;
+    border-style: solid;
+
+    border-radius: 50%;
+
+    opacity: 0;
+    background-color: rgba(64, 255, 54, 0.75);
+}
+
+/* Dealing with each chat */
+#chats-overview {
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-top: 1rem;
+
+    width: 95%;
+    height: 100%;
+
+    background-color: transparent;
+
+    box-sizing: border-box;
+}
+.chat-object {
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    height: 5rem;
+
+    cursor: pointer;
+
+    background-color: transparent;
+}
+.chat-object-info {
+    display: flex;
+
+    width: 75%;
+
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 640px) {
+    #chats-container {
+        width: 100%;
+    }       
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="View/favicon.png">
+
+        <title>Autenticação</title>
+    
+        <script src="View/libs/anime.min.js"></script>
+        
+        <link rel="stylesheet" href="View/Login/css/login.css">
+    </head>
+    <body>
+        <div id="main-div" style="height: 100svh;">
+            <div id="login-holder">
+                <div id="login-div" class="lr-div" style="transform: translateX(0svw)">
+                    <h1 style="position: absolute; top: 2rem">Logar</h1>
+    
+                    <!-- Pretend this is a form 👍 -->
+                    <div id="lr-form">
+                        <div class="form-input">
+                            <img src="View/Login/images/email-icon.png" alt="email-icon">
+                            <input id="login-email" type="text" placeholder="Email">
+                        </div>
+    
+                        <div class="form-input">
+                            <img src="View/Login/images/key-icon.png" alt="key-icon">
+                            <input id="login-password" type="password" placeholder="Senha">
+                        </div>
+                    
+                        <button id="button-login">Logar</button>
+                    </div>
+
+                    <p class="error-message"></p>
+                    <p class="register-account" style="position: absolute; bottom: 3rem; cursor: pointer;">Ainda não tenho uma conta</p>
+                </div>
+                <div id="register-div" class="lr-div" style="transform: translateX(-120svw)">
+                    <h1 style="position: absolute; top: 2rem">Registrar</h1>
+    
+                    <!-- Pretend this is a form 👍 -->
+                    <div class="lr-form">
+                        <div style="overflow-y: auto;">
+                            <div class="form-input">
+                                <img src="View/Login/images/name-icon.png" alt="key-icon">
+                                <input id="register-name" type="text" placeholder="Nome">
+                            </div>
+
+                            <div class="form-input">
+                                <img src="View/Login/images/email-icon.png" alt="email-icon">
+                                <input id="register-email" type="email" placeholder="Email">
+                            </div>
+        
+                            <div class="form-input">
+                                <img src="View/Login/images/key-icon.png" alt="key-icon">
+                                <input id="register-password" type="password" placeholder="Senha">
+                            </div>
+                        </div>
+                    
+                        <button id="button-register">Registrar</button>
+                    </div>
+
+                    <p class="error-message"></p>
+                    <p class="register-account" style="position: absolute; bottom: 3rem; cursor: pointer;">Já tenho uma conta</p>
+                </div>
+                <img id="image-background" src="View/Login/images/background.jpg" alt="background">
+            </div>
+        </div>
+
+        <script src="View/Login/js/login.js"></script>
+    </body>
+</html>
