@@ -1,3 +1,4 @@
 REST/config.php
 REST/Controller/resets
 REST/Model/profiles
+vendor/
