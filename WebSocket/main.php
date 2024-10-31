@@ -289,36 +289,6 @@ header("Access-Control-Allow-Headers: Content-Type");
 $server_host = "127.0.0.1";
 $server_port = "5135";
 
-/*
-$loop = React\EventLoop\Loop::get();
-
-// Updated to use SocketServer
-$webSock = new React\Socket\SocketServer("{$server_host}:{$server_port}", [], $loop);
-
-// SSL context
-$secureWebSock = new React\Socket\SecureServer($webSock, $loop, [
-    'local_cert' => __DIR__ . '/cert/certificate.crt',
-    'local_pk' => __DIR__ . '/cert/private.key',
-    'allow_self_signed' => true, // Set to false for production
-    'verify_peer' => false, // Set to true for production
-]);
-
-// Use httpServer and WsServer for browser support
-$server = new IoServer(
-    new HttpServer(
-        new WsServer(
-            new Server()
-        )
-    ),
-    $secureWebSock,
-    $loop
-);
-
-echo "Server started on {$server_host}:{$server_port}\n";
-$server->run();
-*/
-
-
 // Use httpServer and WsServer for browser support
 $server = IoServer::factory(
     new HttpServer(

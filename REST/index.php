@@ -16,7 +16,6 @@
     switch ($routeInfo[0]) {
         case FastRoute\Dispatcher::NOT_FOUND:
             // 404 Not Found
-            var_dump($uri_request);
             echo "404 URI não encontrada.";
 
             break;
