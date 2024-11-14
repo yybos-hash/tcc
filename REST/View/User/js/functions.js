@@ -1,5 +1,5 @@
 async function getUser (hash) {
-    let url = "/TCC/Project/REST/user/get-user";
+    let url = "/TCC/Project/REST/user/get/user";
 
     if (hash !== null) {
         url += ("?u=" + hash);

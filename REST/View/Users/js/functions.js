@@ -1,5 +1,5 @@
 async function getOwner () {
-    await fetch("/TCC/Project/REST/user/get-user")
+    await fetch("/TCC/Project/REST/user/get/user")
     .then(response => response.json())
     .then(data => {
         var status = data.status;
@@ -11,7 +11,7 @@ async function getOwner () {
     });
 }
 async function searchUsers (search) {
-    await fetch("/TCC/Project/REST/user/search-user?s=" + search)
+    await fetch("/TCC/Project/REST/user/search/user?s=" + search)
     .then(response => response.json())
     .then(data => {
         var status = data.status;

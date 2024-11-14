@@ -1,5 +1,5 @@
 async function getUser (hash) {
-    let url = "/TCC/Project/REST/user/get-user";
+    let url = "/TCC/Project/REST/user/get/user";
 
     if (hash !== null) {
         url += ("?u=" + hash);
@@ -28,7 +28,7 @@ async function getUser (hash) {
     .catch(error => console.log(error.message));
 }
 async function updateInfo (email, name, userClass, course, description) {
-    await fetch("/TCC/Project/REST/user/update-user", {
+    await fetch("/TCC/Project/REST/user/update/user", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
@@ -79,7 +79,7 @@ async function logout () {
 }
 
 async function getPendingFriends () {
-    await fetch("/TCC/Project/REST/user/get-pending-friends")
+    await fetch("/TCC/Project/REST/user/get/pending-friends")
     .then(response => response.json())
     .then(data => {
         var status = data.status;
@@ -97,7 +97,7 @@ async function getPendingFriends () {
     .catch(error => console.log(error.message));
 }
 async function getFriends () {
-    await fetch("/TCC/Project/REST/user/get-friends")
+    await fetch("/TCC/Project/REST/user/get/friends")
     .then(response => response.json())
     .then(data => {
         var status = data.status;
@@ -318,7 +318,7 @@ async function uploadProfilePicture (file) {
     const formData = new FormData();
     formData.append("pfp", file);
     
-    await fetch("/TCC/Project/REST/user/upload-pfp", {
+    await fetch("/TCC/Project/REST/user/upload/pfp", {
         method: "POST",
         body: formData
     })
@@ -347,7 +347,7 @@ async function uploadProfileBackground (file) {
     const formData = new FormData();
     formData.append("background", file);
     
-    await fetch("/TCC/Project/REST/user/upload-background", {
+    await fetch("/TCC/Project/REST/user/upload/background", {
         method: "POST",
         body: formData
     })
@@ -370,7 +370,7 @@ function updateProfileBackground () {
 }
 
 async function deleteAccount () {
-    await fetch("/TCC/Project/REST/user/delete-user", {
+    await fetch("/TCC/Project/REST/user/delete/user", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"

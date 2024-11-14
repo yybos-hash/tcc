@@ -229,7 +229,7 @@ async function addChat (chat) {
 }
 
 async function getChats () {
-    return await fetch("/TCC/Project/REST/chat/get-chats")
+    return await fetch("/TCC/Project/REST/chat/get/chats")
     .then(response => response.json())
     .then((data) => {
         if (data.status === 0)
@@ -240,7 +240,7 @@ async function getChats () {
     .catch(error => console.log(error.message));
 }
 async function getMessages (chatHash) {
-    return await fetch("/TCC/Project/REST/chat/get-messages?chat=" + chatHash)
+    return await fetch("/TCC/Project/REST/chat/get/messages?chat=" + chatHash)
     .then(response => response.json())
     .then(data => {
         if (data.status === 0)
@@ -258,7 +258,7 @@ async function getProfilePicture (userHash) {
     if (userHash !== null)
         args = "?u=" + userHash;
 
-    return await fetch("/TCC/Project/REST/user/get-pfp" + args)
+    return await fetch("/TCC/Project/REST/user/get/pfp" + args)
     .then(response => response.json())
     .then(data => {
         if (data.status === 0)
@@ -292,7 +292,7 @@ async function getUser (userHash) {
     if (userHash !== null)
         args = "?u=" + userHash;
 
-    return await fetch("/TCC/Project/REST/user/get-user" + args)
+    return await fetch("/TCC/Project/REST/user/get/user" + args)
     .then(response => response.json())
     .then(data => {
         if (data.status === 0)
