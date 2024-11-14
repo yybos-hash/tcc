@@ -3,7 +3,7 @@
     margin: 0;
 }
 
-p, label, h1, button {
+p, label, h1, button, a {
     text-align: start;
     color: rgb(30, 30, 30);
 
@@ -14,9 +14,13 @@ p, label, h1, button {
 h1 {
     font-size: 24pt !important;
 }
+a {
+    color: rgb(46, 117, 211);
+    text-decoration: none;
+}
 
 input[type="text"], input[type="email"], input[type="number"], select, textarea {
-    background-color: white;
+    background-color: transparent;
 
     outline: none;
 
@@ -84,13 +88,17 @@ button:hover {
 #main {
     display: flex;
 
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     width: 100vw;
     height: 100svh;
 
     background-color: black;
+
+    padding-left: 4rem;
+
+    box-sizing: border-box;
 }
 
 #reset-container {
@@ -103,11 +111,10 @@ button:hover {
     flex-direction: column;
 
     min-width: 270px;
-    width: 20vw;
-    height: 30svh;
+    width: 25vw;
+    height: 80svh;
 
     padding: 1rem;
-    border-radius: 0.3rem;
 
     gap: 0.75rem;
 
@@ -119,6 +126,11 @@ button:hover {
 
 #submit-button {
     width: 15rem;
-    position: absolute;
-    bottom: 2rem;
+}
+
+@media screen and (max-width: 420px) {
+    #main {
+        justify-content: center;
+        padding-left: 0;
+    }
 }
