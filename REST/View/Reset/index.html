@@ -12,14 +12,48 @@
             <div id="reset-container">
                 <h1 style="position: absolute; top: 1.5rem;">Reset de Senha</h1>
 
-                <input type="text" name="email-input" id="email" placeholder="Email">
+                <input type="text" name="email-input" id="email-input" placeholder="Email">
 
                 <button id="submit-button">Enviar</button>
             </div>
         </div>
 
         <script>
-            
+            async function requestReset (email) {
+                let url = "/TCC/Project/REST/reset/password";
+
+                return await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: new URLSearchParams({
+                        email: email
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    var status = data.status;
+
+                    if (status === 0) {
+                        console.log("fuck");
+                    }
+                    else if (status === 1) {
+
+                    }
+                })
+                .catch(error => console.log(error.message));
+            }
+
+            const emailInput = document.getElementById("email-input");
+            const submitButton = document.getElementById("submit-button");
+
+            submitButton.addEventListener("click", () => {
+                let email = emailInput.value;
+                if (email.trim() != "") {
+                    requestReset(email);
+                }
+            });
         </script>
     </body>
 </html>

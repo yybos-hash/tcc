@@ -102,6 +102,7 @@ button:hover {
 
     flex-direction: column;
 
+    min-width: 270px;
     width: 20vw;
     height: 30svh;
 

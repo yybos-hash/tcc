@@ -7,11 +7,11 @@ class ResetModel extends Model {
     }
 
     public function checkEmail ($email) : string|null {
-        $user = $this->select("SELECT tb_user.user_email FROM tb_user WHERE tb_user.email=:email", [
+        $user = $this->select("SELECT tb_user.user_hashed FROM tb_user WHERE tb_user.user_email=:email", [
             "email" => $email
         ]);
 
-        return $user[0]["user_email"];
+        return !empty($user[0]["user_hashed"]);
     }
 }
 ?>

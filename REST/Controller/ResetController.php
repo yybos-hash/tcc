@@ -17,14 +17,17 @@ class ResetController extends Controller {
     public function resetRequest () {
         $email = trim(filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL));
         if (empty($email)) {
-            return $this->ERROR_STATUS;
+            echo json_encode($this->ERROR_STATUS);
+            exit();
         }
 
-        if (!$this->model->checkEmail($email)) {
-            return $this->NOTFOUND_STATUS;
+        if ($this->model->checkEmail($email)) {
+            echo json_encode($this->NOTFOUND_STATUS);
+            exit();
         }
 
         mail($email, "Reset de Senha", "Body", "From: " . Config::$email);
+        echo json_encode($this->SUCCESS_STATUS);
     }
 }
 ?>
