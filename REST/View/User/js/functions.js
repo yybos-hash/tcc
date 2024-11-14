@@ -14,7 +14,6 @@ async function getUser (hash) {
 
         if (status === 0) {
             console.log("fuck");
-            return null;
         }
         else if (status === 1) {
             let user = data.user;

@@ -190,7 +190,7 @@ class UserModel extends Model {
 
         // The directory doesn't exist, create it
         if (!is_dir($path) || !file_exists($path . "/pfp.jpeg")) {
-            return base64_encode(file_get_contents("Model/profiles/no_profile_icon.jpeg"));
+            return base64_encode(file_get_contents("Model/profiles/no_profile_icon.jpg"));
         }
 
         return base64_encode(file_get_contents($path."/pfp.jpeg"));

@@ -68,7 +68,7 @@ friendsSelectable.addEventListener("click", () => {
 });
 
 dashPfp.addEventListener("click", () => {
-    pfpInput.click();
+    openPage(profileButton);
 });
 profileViewPicture.addEventListener("click", () => {
     pfpInput.click();

@@ -2,7 +2,7 @@ function beginWebsocket () {
     if (jwt === null || jwt === undefined)
         return;
 
-    con = new WebSocket('wss://9a84-200-19-220-177.ngrok-free.app/ws');
+    con = new WebSocket('ws://localhost:5135');
 
     // when it connects to the server
     con.onopen = (e) => onOpen(e);

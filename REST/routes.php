@@ -33,6 +33,7 @@
         $r->addRoute("POST", "{$root}/users/friend-request", ["UsersController", "friendRequest"]);
         
         $r->addRoute("GET", "{$root}/reset", ["ResetController", "getView"]);
+        $r->addRoute("GET", "{$root}/reset/password", ["ResetController", "getView"]);
 
         /*
         POST auth/login

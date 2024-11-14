@@ -134,26 +134,6 @@ class LoginController extends Controller {
         echo json_encode($status);
     }
 
-    public function resetPassword () {
-        $jwt = $_COOKIE[Config::$jwtName];
-
-        if (!$this->isJwtValid($jwt)) {
-            echo json_encode($this->ERROR_STATUS);
-            return;
-        }
-
-        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-        if (empty($email)) {
-            echo $this->ERROR_STATUS;
-        }
-
-        /* 
-            Consider getting the email and such through the jwt
-        */
-
-        mail($email, "Reset de Senha", "Body", "From: " . Config::$email);
-    }
-
     private function userExists ($email) {
         $dbUser = $this->model->userExists($email);
 

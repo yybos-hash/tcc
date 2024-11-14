@@ -5,6 +5,7 @@
     require_once "Model/LoginModel.php";
     require_once "Model/UserModel.php";
     require_once "Model/UsersModel.php";
+    require_once "Model/ResetModel.php";
 
     require_once "Controller/HomeController.php";
     require_once "Controller/ChatController.php";
