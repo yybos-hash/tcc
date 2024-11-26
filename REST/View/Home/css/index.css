@@ -33,7 +33,7 @@ body::-webkit-scrollbar {
 #background-image {
     position: fixed;
 
-    top: -2svh;
+    top: -4svh;
     left: -2vw;
 
     width: 105vw;
@@ -138,5 +138,9 @@ body::-webkit-scrollbar {
 
     .question-answer {
         max-width: 90vw;
+    }
+
+    #nav-holder {    
+        justify-content: space-evenly;
     }
 }
