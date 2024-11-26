@@ -13,6 +13,7 @@ const registerAccount = document.getElementsByClassName("register-account");
 const title = document.getElementById("h1-title");
 
 let logging = true;
+let lastTimeout = null; // I absolutely hate javascript
 
 let inputs = document.getElementsByTagName("input");
 for (let i = 0; i < inputs.length; i++) {
@@ -25,11 +26,18 @@ for (let i = 0; i < inputs.length; i++) {
 }
 
 function setMessages (str) {
+    if (lastTimeout != null)
+        clearTimeout(lastTimeout);
+
     const errorMessages = document.getElementsByClassName("error-message");
 
     for (let i = 0; i < errorMessages.length; i++) {
         errorMessages[i].innerText = str;
     }
+
+    lastTimeout = setTimeout(() => {
+        setMessages("");
+    }, 4000);
 }
 
 async function login () {
