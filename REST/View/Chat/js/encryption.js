@@ -90,6 +90,8 @@ async function encryptMessage (message, key) {
 
 // Function to decrypt a message using AES-GCM
 async function decryptMessage (encryptedData, key, iv, authTag) {
+    key = hexStringToUint8Array(key);
+
     const ivUint8Array = hexStringToUint8Array(iv);
     const authTagUint8Array = hexStringToUint8Array(authTag);
     const encryptedDataUint8Array = hexStringToUint8Array(encryptedData);
@@ -101,7 +103,7 @@ async function decryptMessage (encryptedData, key, iv, authTag) {
     // Import AES key from ArrayBuffer
     const aesKey = await window.crypto.subtle.importKey(
         "raw",
-        hexStringToUint8Array(key).buffer,
+        key.buffer,
         { name: "AES-GCM" },
         true,
         ["encrypt", "decrypt"]

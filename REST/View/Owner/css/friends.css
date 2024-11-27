@@ -1,3 +1,7 @@
+#friends-div {
+    max-height: 100svh;
+    overflow-y: scroll;
+}
 #friends-div-title {
     position: absolute;
 

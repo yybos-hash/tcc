@@ -153,6 +153,8 @@ div#main-div {
     width: 100vw;
     height: 100svh;
 
+    overflow: hidden;
+
     background-color: black;
 }
 
