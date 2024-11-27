@@ -19,7 +19,7 @@ function beginWebsocket () {
 
 function onOpen (e) {
     console.log("Connected");
-    foregroundLoadingText.innerText = "Esperando Handshake do servidor.";
+    foregroundLoadingText.innerText = "Esperando Handshake do servidor...";
 }
 async function onMessage (e) {
     const data = e.data;
@@ -31,16 +31,22 @@ async function onMessage (e) {
 
     // if its encrypted
     if (cipher !== undefined && iv !== undefined && authTag !== undefined) {
-        let decrypted = await decryptMessage(cipher, aesKey, iv, authTag);
-        if (decrypted == "") {
-            console.log("decrypted bad");
-
-            foregroundLoadingText.innerText = "Erro ao encriptar a conexão\nTentando de novo.";
-            con.close();
-            return;
+        try {
+            let decrypted = await decryptMessage(cipher, aesKey, iv, authTag);
+            
+            if (decrypted == "") {
+                console.log("decrypted bad");
+    
+                foregroundLoadingText.innerText = "Erro ao encriptar a conexão\nTentando de novo.";
+                con.close();
+                return;
+            }
+        
+            message = JSON.parse(decrypted);
         }
-
-        message = JSON.parse(decrypted);
+        catch (exception) {
+            console.log(exception);
+        }
     }
 
     switch (message.message_type) {
@@ -56,7 +62,7 @@ async function onMessage (e) {
             var secretKey = bcpowmod(serverPublicKey, privateKey, prime);
 
             // hash the secret key (since its only the secret key the second argument should be empty)
-            hmacSHA256(secretKey, "")
+            hash(secretKey)
             .then((hashed) => {
                 aesKey = hashed;
             });

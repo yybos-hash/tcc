@@ -35,19 +35,21 @@ class AES {
     // Function to encrypt a message using AES-GCM
     public static function encrypt (string $message, string $key) : array {
         $iv = openssl_random_pseudo_bytes(12);
-        $encrypted = openssl_encrypt($message, "aes-256-gcm", $key, OPENSSL_RAW_DATA, $iv, $tag); // right here
+        $encrypted = openssl_encrypt($message, "aes-256-gcm", hex2bin($key), OPENSSL_RAW_DATA, $iv, $tag); // right here
 
-        return [
+        $data = [
             "encrypted" => bin2hex($encrypted),
             "iv" => bin2hex($iv),
             "authTag" => bin2hex($tag) // tag is declared in the function call
         ];
+
+        return $data; 
     }
 
     // Function to decrypt a message using AES-GCM
     public static function decrypt (string $encryptedData, string $key, string $iv, string $authTag) : string {
         // Decrypt the ciphertext
-        return openssl_decrypt(hex2bin($encryptedData), 'aes-256-gcm', $key, OPENSSL_RAW_DATA, hex2bin($iv), hex2bin($authTag));
+        return openssl_decrypt(hex2bin($encryptedData), "aes-256-gcm", hex2bin($key), OPENSSL_RAW_DATA, hex2bin($iv), hex2bin($authTag));
     }
 }
 ?>

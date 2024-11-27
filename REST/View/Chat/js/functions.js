@@ -25,7 +25,7 @@ async function sendMessage (str) {
         "message_status": "unsent"
     };
 
-    // lets consider using HMAC (Only the future can tell us if I will use it)
+    // lets consider using HMAC (Only the future can tell us if I will use it) Update: I did not
     let encrypted = await encryptMessage(JSON.stringify(template), aesKey);
 
     con.send(JSON.stringify(encrypted));
@@ -33,7 +33,7 @@ async function sendMessage (str) {
     chats[currentChat]["messages"].push(template);
     unsentMessages.push(template);
 
-    template["fk_message_sender"] = owner.user_hashed; // addMessage needs the message_sender to see if its the owner sending
+    template["fk_message_sender"] = owner.user_hashed; // addMessage needs the message_sender to see if its the owner sending (who designed this shit)
     addMessage(template);
 }
 async function sendMessageStatus (message, status) {

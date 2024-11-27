@@ -59,7 +59,7 @@ class Server implements MessageComponentInterface {
 
                 // user not connected
                 if (!isset($sender))
-                    throw new TypeError(); 
+                    throw new TypeError();
 
                 if ($sender->aesKey === null)
                     return;
@@ -71,7 +71,6 @@ class Server implements MessageComponentInterface {
 
                 // decrypt the message from the sender with his key
                 $decrypted = AES::decrypt($cipher, $sender->aesKey, $iv, $authTag);
-
                 $msg = json_decode($decrypted, true);
             }
             catch (TypeError $a) {
@@ -84,7 +83,7 @@ class Server implements MessageComponentInterface {
                     $serverKeys = $this->keys[$from->resourceId];
                     $userPublicKey = $msg["public-key"];
 
-                    if (!isset($serverKeys)) 
+                    if (!isset($serverKeys))
                         return;
                     
                     if ($userPublicKey === null)
@@ -189,7 +188,7 @@ class Server implements MessageComponentInterface {
                     // send message to database
                     $postedMessage = $this->messageHandler->postMessage($message);
                     if ($postedMessage === null) {
-                        return; // nonononononono this shouldnt happen
+                        return; // nonononononono this shouldnt happen (again? what the fuck was I thinking)
                     }
 
                     // get the receiver clientInterface
@@ -282,7 +281,7 @@ class Server implements MessageComponentInterface {
     }
 }
 
-header("Access-Control-Allow-Origin: *"); // Allow all origins
+header("Access-Control-Allow-Origin: *"); // Allow all origins, we do not give a f*ck
 header("Access-Control-Allow-Methods: GET, POST");
 header("Access-Control-Allow-Headers: Content-Type");
 
